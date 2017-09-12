@@ -37,7 +37,7 @@ void setFractionNumerator( Fraction * fraction, int numerator )
 
 void setFractionDenominator( Fraction * fraction, int denominator )
 {
-    if(fraction)
+    if(fraction && denominator != 0)
     {
         fraction->denominator = denominator;
     }
