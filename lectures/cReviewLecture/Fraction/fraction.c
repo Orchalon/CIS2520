@@ -3,16 +3,12 @@
 
 int getNumerator(Fraction* fraction)
 {
-    if(fraction)
-        return fraction->numerator;
-    return 0;
+    return fraction->numerator;
 }
 
 int getDenominator(Fraction * fraction)
 {
-    if(fraction)
-        return fraction->denominator;
-    return 1;
+    return fraction->denominator;
 }
 
 
@@ -24,19 +20,13 @@ void setFraction( Fraction * fraction, int numerator, int denominator )
 
 void setFractionNumerator( Fraction * fraction, int numerator )
 {
-    if(fraction)
-    {
-        fraction->numerator = numerator;
-    }
+    fraction->numerator = numerator;
 }
 
 
 void setFractionDenominator( Fraction * fraction, int denominator )
 {
-    if(fraction)
-    {
-        fraction->denominator = denominator;
-    }
+    fraction->denominator = denominator;
 }
 
 void printFraction( Fraction * fraction )

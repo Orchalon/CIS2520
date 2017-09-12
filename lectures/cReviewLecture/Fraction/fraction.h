@@ -1,3 +1,8 @@
+/**
+ * This File contains the Fraction structure
+ * Fraction contains an interface of gettors and accessors.
+ */
+
 // Protected your structure and code from accidently being included twice.
 #ifndef FRACTION_H
 #define FRACTION_H
