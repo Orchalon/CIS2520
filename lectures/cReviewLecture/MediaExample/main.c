@@ -2,36 +2,8 @@
 #include <stdlib.h>
 
 #include "media.h"
+#include "printFunctions.h"
 
-/* These print statements should be in their own Media files 
- * For demonstration purposes only they exist here in the main file.
- * /
-
-/**
- * Prints integer data, does the same things as printIntType
- * but shows the steps for casting
- * @param data [description]
- */
-void printIntSteps( void * data )
-{
-    // Cast void pointer to integer pointer
-    int* intPtr = (int*)data;
-    //Dereference the value
-    int value = *intPtr;
-    printf( "INTDATA %d\n", value );
-}
-
-
-void printIntType( void * data)
-{
-    // Same as printIntSteps but in 1 step
-    printf( "INT MEDIA DATA %d\n", *((int*)data) );
-}
-
-void printDoubleType( void * data  )
-{
-    printf( "DOUBLE MEDIA DATA %f\n", *((double*) data ) );
-}
 
 int main( int argc, char ** argv )
 {
@@ -46,18 +18,17 @@ int main( int argc, char ** argv )
     int * myPtr = &val;
     setMedia( &myLibrary[0], myPtr );
 
-    // Another unrealistic type of media.
     // Pointer to type double
     double* dptr = malloc(sizeof(double));
     *dptr = 123.321;
     setMedia( &myLibrary[1], dptr);
 
     // What about getting our information back.
-
     // Printing using different function pointers
     printMedia( getMedia(&myLibrary[0]), printIntSteps);
     printMedia( getMedia(&myLibrary[0]), printIntType);
     printMedia( getMedia(&myLibrary[1]), printDoubleType);
+	//printMedia( getMedia(&myLibrary[1]), printDouble);
 
     free(myLibrary);
     free(dptr);
