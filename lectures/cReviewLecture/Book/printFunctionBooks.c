@@ -15,7 +15,7 @@ typedef struct book {
 } Book;
 
 // Typedef for the function pointer
-typedef void (*PrintBookFunc)(Book*);
+typedef void (*PrintBookFunc)(void*);
 
 /**
  * [createBook description]
@@ -55,8 +55,9 @@ char* getName( Book *b )
  * Display a book's name and price.
  * @param b [Book]
  */
-void printBook( Book * b ) 
+void printBook( void * v )
 {
+    Book * b = (Book *) v;
     printf("%s : %f\n", getName(b), getPrice(b) );
 }
 
@@ -64,20 +65,22 @@ void printBook( Book * b )
  * Print the book in another order
  * @param b [description]
  */
-void printBookReverse( Book * b )
+void printBookReverse( void * v )
 {
+    Book * b = (Book *) v;
     printf("%f : %s\n", getPrice(b), getName(b));
 }
 
 int main(int argc, char ** argv)
 {
     Book * b = createBook( "Harry Potter And The Cursed Child", 19.99);
+    void * vPtr = b;
 
     PrintBookFunc display = &printBook;
-    display(b);
+    display(vPtr);
 
     display = &printBookReverse;
-    display(b);
+    display(vPtr);
     
     free(b);
     return 0;

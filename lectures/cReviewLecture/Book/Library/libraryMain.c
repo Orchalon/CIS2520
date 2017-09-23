@@ -42,8 +42,8 @@ int main(int argc, char ** argv)
 
     printf("The library currently holds the following books:\n");
 
-    printBook(a);
-    printBook(b);
+    printBook((void *) a);
+    printBook((void *) b);
     
     printf("\n\nThe reader is currently interested in:\n");
 
