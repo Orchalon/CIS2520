@@ -23,8 +23,8 @@ int main( int argc, char ** argv)
 	// Note: This is the alternative method 
 	// Where you could cast the printFunction into a format needed
 	// Instead, of changing printBook( Book* a) into printBook(void*a);
-	// Alternative, method  casting print book to
-	// Requires changing Book.h printBok to back to original API
+	// Alternative, method  casting printBook
+	// Requires changing Book.h printBook back to original API
 	//setPrintType( s, (VoidFunc)&printBook);
 
 	// Set our first book
@@ -34,6 +34,7 @@ int main( int argc, char ** argv)
 	displayStore(s);
 
 	// Set our second book;
+	// Replace the original Book with a different book.
 	setItem(s,a);
 
 	// Display what is in the store
