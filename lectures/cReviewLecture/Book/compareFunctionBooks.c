@@ -16,7 +16,7 @@ typedef struct book {
 } Book;
 
 // Typedef for the function pointer
-typedef void (*PrintBookFunc)(Book*);
+typedef void (*PrintBookFunc)(void*);
 typedef int (*CompareBooksFunc) (Book*,Book*);
 
 
@@ -49,7 +49,7 @@ double getPrice( Book * b )
  * @param  b Book
  * @return   char* string of name
  */
-char* getName( Book *b )
+char* getName( Book * b )
 {
 	return b->name;
 }
@@ -58,8 +58,9 @@ char* getName( Book *b )
  * Display a book's name and price.
  * @param b [Book]
  */
-void printBook( Book * b ) 
+void printBook( void * v )
 {
+    Book * b = (Book *) v;
     printf("%s : %f\n", getName(b), getPrice(b) );
 }
 
@@ -67,8 +68,9 @@ void printBook( Book * b )
  * Print the book in another order
  * @param b [description]
  */
-void printBookReverse( Book * b )
+void printBookReverse( void * v )
 {
+    Book * b = (Book *) v;
     printf("%f : %s\n", getPrice(b), getName(b));
 }
 
@@ -110,12 +112,12 @@ int main(int argc, char ** argv)
     Book * b = createBook( "Harry Potter And The Cursed Child", 19.99);
 
     PrintBookFunc display = &printBook;
-    display(b);
+    display((void *) b);
 
     printf("Prices of books are:\n");
     display = &printBookReverse;
-    display(a);
-    display(b);
+    display((void *) a);
+    display((void *) b);
 
     printComparison(a,b, compareBooksByPrice);
     

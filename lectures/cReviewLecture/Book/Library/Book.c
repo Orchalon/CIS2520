@@ -34,8 +34,9 @@ char* getName( Book *b )
  * Display a book's name and price.
  * @param b [Book]
  */
-void printBook( Book * b ) 
+void printBook( void * v )
 {
+    Book * b = (Book *) v;
     printf("%s : %f\n", getName(b), getPrice(b) );
 }
 

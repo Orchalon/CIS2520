@@ -7,7 +7,7 @@ typedef struct book {
 } Book;
 
 // Typedef for the function pointer
-typedef void (*PrintBookFunc)(Book*);
+typedef void (*PrintBookFunc)(void*);
 typedef int (*CompareBooksFunc) (Book*,Book*);
 
 
@@ -37,7 +37,7 @@ char* getName( Book *b );
  * Display a book's name and price.
  * @param b [Book]
  */
-void printBook( Book * b );
+void printBook( void * v );
 
 /**
  * Print the book in another order

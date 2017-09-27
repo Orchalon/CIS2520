@@ -52,8 +52,9 @@ char* getName( Book *b )
  * Display a book's name and price.
  * @param b [Book]
  */
-void printBook( Book * b ) 
+void printBook( void * v )
 {
+    Book * b = (Book *) v;
     printf("%s : %f\n", getName(b), getPrice(b) );
 }
 
@@ -61,7 +62,7 @@ void printBook( Book * b )
 int main(int argc, char ** argv)
 {
     Book * b = createBook( "Harry Potter And The Cursed Child", 19.99);
-    printBook(b);
+    printBook((void *) b);
     free(b);
     return 0;
 }
