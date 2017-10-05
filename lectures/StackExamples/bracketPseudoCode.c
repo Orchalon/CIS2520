@@ -7,6 +7,12 @@
  * When we move the internal () and [] statement eventually we should
  * be able to remove the outer () and [] unless the statement 
  * wasn't valid to begin with.
+ *
+ * Interface for this stack only
+ * void* top(stack) -> retrieves top value from stack
+ * void* pop(stack) -> retrieves top value from stack and removes it.
+ * void push(stack,void data); ->  Push data onto the stack.
+ * isEmpty(stack);  -> returns if the stack is currently empty
  */
 
 int main( int argc, char ** argv )
@@ -18,18 +24,20 @@ int main( int argc, char ** argv )
 	while( ch != '\n' && ch != EOF )
 	{
 		char* stackTop = (char*)top(stack);
-		if( ch == ']' && stackTop == '[')
+		if( stackTop == '[' && ch == ']')
 		{
 			// Pop off the '['
 			pop(stack);
 		}
-		else if( ch == ')' && stackTop == '(')
+		else if( stackTop == '(' && ch == ')')
 		{
 			// Pop off the '('
 			pop(stack);
 		}
-		else if( ch == '(' || ch == '[') 
+		else
 			push(stack,ch);
+
+		ch = getchar();
 	}
 
 	if( isEmpty(stack) )
