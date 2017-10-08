@@ -4,7 +4,7 @@
  *
  * The logic is whenever  we see a ) or ] we check if the previous 
  * character was a [ or ( because we know those are closed matches.
- * When we move the internal () and [] statement eventually we should
+ * By removing internal () and [] matching characters we should eventually 
  * be able to remove the outer () and [] unless the statement 
  * wasn't valid to begin with.
  *
