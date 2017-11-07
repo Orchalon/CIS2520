@@ -5,8 +5,12 @@
 int factNumber( unsigned int count )
 {
 	int fact = 1;
+	printf("Iterative Factorial for %d\n", count);
 	for(int i = 1; i <= count; i++)
+	{
+		printf("Current value of factorial %d\n", fact);
 		fact *= i;
+	}
 	return fact;
 }
 
@@ -15,7 +19,8 @@ int factNumberRecursive( unsigned int count )
 {
 	// Base case, we always need a stopping condition
 	// Here, we stop when the number 1 is reached.
-	if( count  == 1 )
+	printf("Recursive Factorial solving for %d\n", count);
+	if( count  == 0 )
 		return 1;
 
 	// This our recursive steps.
