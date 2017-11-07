@@ -30,6 +30,22 @@ int factNumberRecursive( unsigned int count )
 	return count * factNumberRecursive(count-1);
 }
 
+// Recursive approach
+int factNumberRecursiveUp( int current, unsigned int count )
+{
+	// Base case, we always need a stopping condition
+	// Here, we stop when the number 1 is reached.
+	printf("Recursive Factorial solving for %d\n",current);
+	if( current  == count )
+		return count;
+
+	// This our recursive steps.
+	// We break the problem down by subtracting - 1
+	// The problem is smaller in temrs of having 1 less number
+	// to multiply by.
+	return current * factNumberRecursiveUp(current+1, count);
+}
+
 int main( int argc, char ** argv )
 {
 	int count = 0;
@@ -39,7 +55,7 @@ int main( int argc, char ** argv )
 	while(count >= 0 )
 	{
 		// Start the recursive function call
-		int result = factNumberRecursive( count );
+		int result = factNumberRecursiveUp(1, count );
 		//int result = factNumber( count );
 		printf("The sum is %d\n", result );
 		
