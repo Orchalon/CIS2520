@@ -24,14 +24,21 @@ typedef struct Node
 /**
 *Hash table structure
 **/
-typedef struct HTable
+typedef struct HTable HTable;
+struct HTable
 {
 	size_t size; ///< number that represents the size of the hash table
 	Node **table; ///< array that contains all of the table nodes
 	void (*destroyData)(void *data); ///< function pointer to a function to delete a single piece of data from the hash table
 	int (*hashFunction)(size_t tableSize, int key); ///< function pointer to a function to hash the data 
     void (*printNode)(void *toBePrinted); ///< function pointer to a function that prints out a data element of the table
-}HTable;
+
+    /**A function pointer for add is not mandatory, just a suggestion for adding. 
+    * Assigned as &insertDataInMap when initializing a map.
+    * Allows overloading of function names to use standard naming conventions, similar to the object oriented approach.
+    **/
+    void (*add) (struct HTable *hashTable, void *data); ///< function pointer for users to add a data element to the map.
+};
 
 
 /**Function to point the hash table to the appropriate functions. Allocates memory to the struct and table based on the size given.
@@ -65,6 +72,14 @@ void destroyTable(HTable *hashTable);
 *@param data pointer to generic data that is to be inserted into the list
 **/
 void insertData(HTable *hashTable, int key, void *data);
+
+/** THIS FUNCTION IS NOT MANDATORY, users call this function to insert a Node in the hash table.
+* It's meant as a wrapper for insertData so the users don't need to generate the key when adding.
+*@pre hashTable type must exist and have data allocated to it
+*@param hashTable pointer to the hash table
+*@param data pointer to generic data that is to be inserted into the list
+**/
+void insertDataInMap(HTable *hashTable, void *data);
 
 /**Function to remove a node from the hash table 
  *@pre Hash table must exist and have memory allocated to it
