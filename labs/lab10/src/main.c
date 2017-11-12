@@ -3,18 +3,17 @@
 #include "LinkedListAPI.h"
 
 /** 
- * Dummy Functions for the list
+ * UserFunctions for the list
  */
 void printData( void* data )
 {
-	// Dummy Function
 	int* i = (int*)data;
 	printf("%d ", *i);
 }
 
 void deleteData( void* first)
 {
-	// Dumy Function
+	//EMPTY Function
 }
 
 
@@ -54,13 +53,10 @@ int isPalindrome(char * str, int length)
  * Recursive function designed by you. 
  * This function recursively calls itself and counts the number of occurents of a target integer value.
  */
-int countOccurrences( Node * list, int currentCount,  int target)
+int countOccurrences( Node * list, int target)
 {
 	// What is the stopping condition of this recursion
-	
-	// If not stopping what should be calculated here and how do you break this problem down.
 
-	return 0; // Included only to stop warnings
 }
 
 /**
