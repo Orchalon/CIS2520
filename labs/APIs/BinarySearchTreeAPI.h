@@ -31,6 +31,7 @@ struct binTreeNode{
 	TreeDataPtr data;
 	TreeNode * left;
 	TreeNode * right;
+	//TreeNode * parent; Optional but useful
 };
 
 /**
