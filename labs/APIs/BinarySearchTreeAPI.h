@@ -50,6 +50,14 @@ typedef struct binTree
 } Tree;
 
 /**
+ * Creates a TreeNode. TreeNode children are set to NULL and data is set to the passed in data.
+ * @param data - the data to be stored within the Node. 
+ * @return
+ *
+ */
+TreeNode* createTreeNode(TreeDataPtr data);
+
+/**
  * createBinTree allocates memory for Tree and assigned function pointers
  * @param  compare [Function pointer to Compare data in tree nodes]
  * @param  del     [Function pointer to delete data from node]
