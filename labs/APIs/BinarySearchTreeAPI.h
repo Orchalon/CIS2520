@@ -104,18 +104,6 @@ TreeDataPtr findInTree( Tree* theTree, TreeDataPtr data );
 TreeDataPtr getRootData(Tree * theTree);
 
 /**
- * printTreeByOrder (OPTIONAL) - Generic version of print Tree
- * 	   Consider that print pre/post/inorder could be done with a small change in coding logic.
- *     This function could be implemented to allow the ordering of print and traversing the nodes to change.
- *     nodeOrder manages the order the TreeNode and it's children will be printed.
- *     ie it will order the print statemetn for InOrder,PreOrder,PostOrder
- * @param tree      
- * @param nodeOrder order to print nodes
- * @param printData How to display the actual data.
- */
-void printTreeByOrder( Tree * tree, PrintFunc nodeOrder, PrintFunc printData );
-
-/**
  * [printInOrder This function prints the tree using an inOrder traversal
  * @param theTree   [description]
  * @param printData [description]
@@ -157,6 +145,14 @@ int isLeaf( TreeNode * treeNode);
  * @return         0 if false, 1 otherwise
  */
 int hasTwoChildren( TreeNode *treeNode);
+
+/**
+ * Helper funciton Get the height of a particulat Node in the tree. 
+ * @param  treeNode [description]
+ * @return    (1-Based) heigh for the tree. 
+ */
+int getHeight( TreeNode* treeNode );
+
 
 /**
  * You may add additional API functions below this comment if you want to extend the funcitonality.
