@@ -32,6 +32,7 @@ struct binTreeNode{
 	TreeNode * left;
 	TreeNode * right;
 	//TreeNode * parent; Optional but useful
+    //Tree* parentTree;  Optional but gets you access to function pointers.
 };
 
 /**
@@ -52,7 +53,7 @@ typedef struct binTree
 /**
  * Creates a TreeNode. TreeNode children are set to NULL and data is set to the passed in data.
  * @param data - the data to be stored within the Node. 
- * @return
+ * @return Newly created TreeNode
  *
  */
 TreeNode* createTreeNode(TreeDataPtr data);
@@ -61,7 +62,7 @@ TreeNode* createTreeNode(TreeDataPtr data);
  * createBinTree allocates memory for Tree and assigned function pointers
  * @param  compare [Function pointer to Compare data in tree nodes]
  * @param  del     [Function pointer to delete data from node]
- * @return
+ * @return Newly created Tree
  */
 Tree * createBinTree(CompareFunc compare, DeleteFunc del);
 
@@ -81,13 +82,24 @@ void addToTree(Tree * theTree, TreeDataPtr data);
 
 /**
  * Remove data from the tree
- * @param theTree [description]
- * @param data    [description]
+ * @param theTree 
+ * @param data    
  */
 void removeFromTree(Tree * theTree, TreeDataPtr data);
 
+
+/**
+ * This function searches the tree for the target data
+ * @param  theTree 
+ * @param  data    
+ * @return         NULL if fail, otherwise return data
+ */
+TreeDataPtr findInTree( Tree* theTree, TreeDataPtr data );
+
 /**
  * Get data from the root of the Tree if it exists.
+ * @param  theTree 
+ * @return NULL if tree is empty, otherwise return root
  */
 TreeDataPtr getRootData(Tree * theTree);
 
@@ -127,7 +139,7 @@ void printPostOrder(Tree * theTree, PrintFunc printData);
 /**
  * Checks if a tree is empty
  * @param  theTee [description]
- * @return        [description]
+ * @return        0 if false, 1 otherwise
  */
 int isTreeEmpty(Tree* theTee);
 
@@ -135,14 +147,14 @@ int isTreeEmpty(Tree* theTee);
 /**
  * Helper function for checking if a single node is a leaf (no children)
  * @param  treeNode [description]
- * @return          [description]
+ * @return          0 if false, 1 otherwise
  */
 int isLeaf( TreeNode * treeNode);
 
 /**
  * Helper funciton for checking if a single node has two children.
  * @param  treeNode [description]
- * @return          [description]
+ * @return         0 if false, 1 otherwise
  */
 int hasTwoChildren( TreeNode *treeNode);
 
