@@ -53,6 +53,8 @@ Heap* createAndinitializeHeap( )
 		*ip = data[i];
 		printData(ip);
 		insertHeapNode(heap,ip);
+		printHeap(heap,printData);
+		printf("\n\n\n");
 	}
 	return heap;
 }
