@@ -102,20 +102,30 @@ size_t findMaxRight(Heap *heap,size_t curr, size_t i){
 
 size_t getLeftChildIndex(size_t index)
 {
+    return (2*index);
     //TODO: For lab 11 students must recreate this function
 	// helper to quickly calculate the left child from index ( ie index is the parent )
-	return 0;
+//	return 0;
 }
 
 size_t getRightChildIndex(size_t index)
 {
-    //TODO: For lab 11 students must recreate this function
+    return ((2*index)+1);
+	//TODO: For lab 11 students must recreate this function
 	// helper to quickly calculate the right child from index ( ie index is the parent )
-	return 0;
+//	return 0;
 }
 
 size_t getParentIndex(size_t index)
 {
+    if (index == 1)
+    {
+	return NULL;
+    }
+    else
+    {
+        return (index/2);
+    }
     //TODO: For lab 11 students must recreate this function
 	// helper to quickly calculate the parent index of a child node. 
 	return 0;
