@@ -9,10 +9,10 @@ SRC_FILES = $(wildcard ./src/*.c)
 TEST_FILES = $(wildcard ./tests/*.c)
 
 program:
-	$(CC) $(CFLAGS) $(SRC_FILES) -Iinclude -L./lib $(LIBS) -o $(BIN)program
+	$(CC) $(CFLAGS) $(SRC_FILES) -Iinclude -L./lib $(LIBS) -o $(BIN)program_new
 
 testing:
-	$(CC) $(CFLAGS) $(TEST_FILES) ./src/heap.c -Iinclude -L./lib $(LIBS) -o $(BIN)testProgram
+	$(CC) $(CFLAGS) $(TEST_FILES) ./src/heap.c -Iinclude -L./lib $(LIBS) -o $(BIN)testProgram_new
 
 show:
 	@echo $(SRC_FILES)
