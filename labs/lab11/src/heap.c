@@ -40,7 +40,15 @@ Node *createHeapNode(void *data){
 }
 
 void insertHeapNode(Heap *heap, void *data){
-    //TODO: For lab 11 students must recreate this function
+    size_t pos = ++heap->currentSize;
+    Node * newNode = createHeapNode(data);
+    heap->heapData[pos] = newNode;
+    for (; pos > 1 && heap->compare(data, heap->heapData[getParentIndex(pos)]->data) < 0; pos = getParentIndex)
+    {
+        heap->heapData[pos] = heap->heapData[getParentIndex(pos)];
+    }
+    heap->heapData[pos];
+	//TODO: For lab 11 students must recreate this function
 
 	// This function inserts data into the heap.
 	// It should check for the next available position in the tree.
@@ -149,6 +157,10 @@ void* search(Heap* heap, void* data)
 
 void printHeap(Heap* heap, void (*printFunc)(void*) )
 {
+    for (size_t i = 0; i < currentSize(heap); i++)
+    {
+        printFunc(heap->heapArray[i]->data);
+    }
     //TODO: For lab 11 students must recreate this function
 	// Print a BFS version of the Heap Array
 	// This function should be iterative for BFS.
